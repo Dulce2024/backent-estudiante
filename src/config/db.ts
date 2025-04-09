@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 
 dotenv.config();
 
-export const AppDataSourse = new DataSource({
+export const AppDataSource = new DataSource({
     type: 'postgres',
     host: process.env.DB_HOST,
     port: Number(process.env.DB_PORT),
@@ -26,7 +26,7 @@ export const AppDataSourse = new DataSource({
 export const connectDB = async () => {
 
     try {
-        await AppDataSourse.initialize();
+        await AppDataSource.initialize();
         console.log('Conectado a la base de datos');
     } catch(error){
         console.log('Error al concectarse a la base de datos', error);
